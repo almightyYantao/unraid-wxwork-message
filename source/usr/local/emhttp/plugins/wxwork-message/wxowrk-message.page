@@ -1,7 +1,6 @@
 Menu="Utilities"
 Icon="snmp.png"
 Title="企业微信消息通知"
-Tag="cogs"
 ---
 
 <?PHP
