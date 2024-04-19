@@ -9,6 +9,7 @@
 <!ENTITY minosver      "1.0.0">
 
 <!ENTITY githuburl     "https://raw.githubusercontent.com/&author;/unraid-wxwork-message/&gitbranch;">
+<!ENTITY pluginurl     "&githuburl;/wxwork-message.plg">
 
 <!-- Defines the persistent (USB) directory where downloaded packages are cached -->
 <!ENTITY usbcfgdir     "/boot/config/plugins/&name;/">
@@ -18,7 +19,6 @@
          author="&author;"
          version="&pluginver;"
          pluginURL="&pluginurl;"
-         support="&supporturl;"
          min="&minosver;"
          >
 
@@ -62,43 +62,6 @@ send_message() {
 
 # 调用发送消息函数
 send_message "这是一条来自Shell脚本的测试消息"
-
-</INLINE>
-</FILE>
-
-<!-- The 'remove' script -->
-<FILE Run="/bin/bash" Method="remove">
-<INLINE>
-
-# 企业微信相关信息
-CORP_ID="ww138ff07981ec3690"
-APP_SECRET="qksnnDNqOhBaz3Uh8ZacYrIMMrSdapM-HrPIU2bDc-0"
-TO_USER="@all"  # 发送给所有成员，或者指定成员，比如 "@user1"
-AGENT_ID="1000003"
-
-# 获取 access token
-ACCESS_TOKEN=$(curl -s -G "http://yantao.wiki:5001/cgi-bin/gettoken" \
-    -d "corpid=$CORP_ID" \
-    -d "corpsecret=$APP_SECRET" | jq -r '.access_token')
-
-# 发送消息
-send_message() {
-    local message="$1"
-    curl -s -H "Content-Type: application/json" -X POST \
-        "http://yantao.wiki:5001/cgi-bin/message/send?access_token=$ACCESS_TOKEN" \
-        -d "{
-            \"touser\": \"$TO_USER\",
-            \"msgtype\": \"text\",
-            \"agentid\": \"$AGENT_ID\",
-            \"text\": {
-                \"content\": \"$message\"
-            },
-            \"safe\":0
-        }"
-}
-
-# 调用发送消息函数
-send_message "写在脚本"
 
 </INLINE>
 </FILE>
