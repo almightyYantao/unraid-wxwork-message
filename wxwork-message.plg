@@ -9,7 +9,7 @@
 <!ENTITY minosver      "6.9.0">
 <!ENTITY version     "1.0.0">
 
-<!ENTITY githuburl     "https://raw.githubusercontent.com/&author;/wxwork-message/&gitbranch;">
+<!ENTITY githuburl     "https://raw.githubusercontent.com/&author;/unraid-wxwork-message/&gitbranch;">
 <!ENTITY pluginurl     "&githuburl;/wxwork-message.plg">
 <!ENTITY plgPATH     "/boot/config/plugins/&name;">
 <!ENTITY plgNAME     "&name;-&version;">
