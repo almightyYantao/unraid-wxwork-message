@@ -6,10 +6,14 @@
 <!ENTITY gitbranch     "test">
 
 <!ENTITY pluginver     "2024.04.19">
-<!ENTITY minosver      "1.0.0">
+<!ENTITY minosver      "6.9.0">
+<!ENTITY version     "1.0.0">
 
-<!ENTITY githuburl     "https://raw.githubusercontent.com/&author;/unraid-wxwork-message/&gitbranch;">
+<!ENTITY githuburl     "https://raw.githubusercontent.com/&author;/wxwork-message/&gitbranch;">
 <!ENTITY pluginurl     "&githuburl;/wxwork-message.plg">
+<!ENTITY plgPATH     "/boot/config/plugins/&name;">
+<!ENTITY plgNAME     "&name;-&version;">
+<!ENTITY MD5         "2cb50d72c6458aa97f8d1169378148bd">
 
 <!-- Defines the persistent (USB) directory where downloaded packages are cached -->
 <!ENTITY usbcfgdir     "/boot/config/plugins/&name;/">
@@ -28,41 +32,14 @@
 新增企业微信消息通知，本消息插件是替换Bark消息推送。也就是安装了之后Bark的消息将失效
 </CHANGES>
 
+<FILE Name="&plgPATH;/&plgNAME;.txz" Run="upgradepkg --install-new --reinstall">>
+    <URL>&gitURL;/archives/&plgNAME;.txz</URL>
+    <MD5>&MD5;</MD5>
+</FILE>
 
 <!-- Test SNMP functionality -->
 <FILE Run="/bin/bash">
 <INLINE>
-
-# 企业微信相关信息
-CORP_ID="ww138ff07981ec3690"
-APP_SECRET="qksnnDNqOhBaz3Uh8ZacYrIMMrSdapM-HrPIU2bDc-0"
-TO_USER="@all"  # 发送给所有成员，或者指定成员，比如 "@user1"
-AGENT_ID="1000003"
-
-# 获取 access token
-ACCESS_TOKEN=$(curl -s -G "http://yantao.wiki:5001/cgi-bin/gettoken" \
-    -d "corpid=$CORP_ID" \
-    -d "corpsecret=$APP_SECRET" | jq -r '.access_token')
-
-# 发送消息
-send_message() {
-    local message="$1"
-    curl -s -H "Content-Type: application/json" -X POST \
-        "http://yantao.wiki:5001/cgi-bin/message/send?access_token=$ACCESS_TOKEN" \
-        -d "{
-            \"touser\": \"$TO_USER\",
-            \"msgtype\": \"text\",
-            \"agentid\": \"$AGENT_ID\",
-            \"text\": {
-                \"content\": \"$message\"
-            },
-            \"safe\":0
-        }"
-}
-
-# 调用发送消息函数
-send_message "这是一条来自Shell脚本的测试消息"
-
 </INLINE>
 </FILE>
 
