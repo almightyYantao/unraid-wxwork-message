@@ -1,0 +1,15 @@
+Menu="Utilities"
+Icon="snmp.png"
+Title="企业微信消息通知"
+Tag="cogs"
+---
+
+<?PHP
+
+$cfg = parse_plugin_cfg('wxwork-message');
+?>
+
+<form markdown="1" method="POST" action="/update.php" target="progressFrame">
+<input type="text" />
+<input type="button" value="Done" onclick="done()">
+</form>
