@@ -3,15 +3,12 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name          "wxwork-message">
 <!ENTITY author        "almightyYantao">
-<!ENTITY gitbranch     "main">
+<!ENTITY gitbranch     "test">
 
 <!ENTITY pluginver     "2024.04.19">
 <!ENTITY minosver      "1.0.0">
 
 <!ENTITY githuburl     "https://raw.githubusercontent.com/&author;/unraid-wxwork-message/&gitbranch;">
-<!ENTITY pluginurl     "&githuburl;/snmp.plg">
-<!ENTITY pkgurl        "&githuburl;/packages">
-<!ENTITY supporturl    "https://forums.unraid.net/topic/39339-plug-in-snmp">
 
 <!-- Defines the persistent (USB) directory where downloaded packages are cached -->
 <!ENTITY usbcfgdir     "/boot/config/plugins/&name;/">
