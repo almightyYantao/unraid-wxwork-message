@@ -33,7 +33,7 @@
 </CHANGES>
 
 <FILE Name="&plgPATH;/&plgNAME;.txz" Run="upgradepkg --install-new --reinstall">>
-    <URL>&gitURL;/archives/&plgNAME;.txz</URL>
+    <URL>&githuburl;/archives/&plgNAME;.txz</URL>
     <MD5>&MD5;</MD5>
 </FILE>
 
