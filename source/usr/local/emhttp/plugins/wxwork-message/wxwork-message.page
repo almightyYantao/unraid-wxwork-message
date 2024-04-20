@@ -14,21 +14,30 @@ $cfg = parse_plugin_cfg('wxwork-message');
 
 企业ID:
 : <input type="text" name="crop_id" value="<?=$cfg['crop_id']?>" placeholder=""><br/>
+
 > 企业的ID
 
 AgentId:
 : <input type="text" name="agent_id" value="<?=$cfg['agent_id']?>" placeholder=""><br/>
+
 > 应用的ID
 
 Secret:
 : <input type="text" name="secret" value="<?=$cfg['secret']?>" placeholder=""><br/>
+
 > 应用的密钥
 
 代理地址:
 : <input type="text" name="proxy_url" value="<?=$cfg['proxy_url']?>" placeholder=""><br/>
+
 > 代理地址必须配置，除非你的公网IP是固定的
 
+替换什么消息通知:
+: <input type="text" name="message_type" value="<?=($cfg['message_type']=="")?"PushBits":$cfg['message_type']?>" placeholder=""><br/>
+
+> 这里写你需要替换的消息类型，如：Brak、Telegram、Slack、PushBits等，默认：PushBits<br/>注意，这里需要取设置->通知设置，里面开启对应的通知，并且吧代理通知勾选上。<br/>先开启消息通知，在来保存插件设置
+
+<span>测试的话，直接取通知设置里面找到你对应修改的消息类型，点击测试即可</span>
 <input type="submit" value="_(Apply)_">
 <input type="button" value='_(Done)_' onclick="done()">
-<input type="button" value='测试' onclick="box()" />
 </form>
