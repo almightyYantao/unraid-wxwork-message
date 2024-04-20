@@ -12,14 +12,21 @@ $cfg = parse_plugin_cfg('wxwork-message');
 <input type="hidden" name="#file" value="wxwork-message/wxwork-message.cfg">
 <!-- PHP to execute after exiting this file but before handing off to update.php -->
 <input type="hidden" name="#include" value="/plugins/wxwork-message/include/try.php">
+
 企业ID:
-: <input type="text" name="crop_id" value="<?=$cfg['crop_id']?>" placeholder="">
+: <input type="text" name="crop_id" value="<?=$cfg['crop_id']?>" placeholder=""><br/>
+
+
 AgentId:
-: <input type="text" name="agent_id" value="<?=$cfg['agent_id']?>" placeholder="">
+: <input type="text" name="agent_id" value="<?=$cfg['agent_id']?>" placeholder=""><br/>
+
+
 Secret:
-: <input type="text" name="secret" value="<?=$cfg['secret']?>" placeholder="">
+: <input type="text" name="secret" value="<?=$cfg['secret']?>" placeholder=""><br/>
+
+
 代理地址:
-: <input type="text" name="proxy_url" value="<?=$cfg['proxy_url']?>" placeholder="">
+: <input type="text" name="proxy_url" value="<?=$cfg['proxy_url']?>" placeholder=""><br/>
 
 > 代理地址必须配置，除非你的公网IP是固定的
 
