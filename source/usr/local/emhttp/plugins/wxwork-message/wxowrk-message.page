@@ -10,28 +10,25 @@ $cfg = parse_plugin_cfg('wxwork-message');
 
 <form markdown="1" name="active_config" method="POST" action="/update.php"  target="progressFrame">
 <input type="hidden" name="#file" value="wxwork-message/wxwork-message.cfg">
-<!-- PHP to execute after exiting this file but before handing off to update.php -->
 <input type="hidden" name="#include" value="/plugins/wxwork-message/include/try.php">
 
 企业ID:
 : <input type="text" name="crop_id" value="<?=$cfg['crop_id']?>" placeholder=""><br/>
-
+> 企业的ID
 
 AgentId:
 : <input type="text" name="agent_id" value="<?=$cfg['agent_id']?>" placeholder=""><br/>
-
+> 应用的ID
 
 Secret:
 : <input type="text" name="secret" value="<?=$cfg['secret']?>" placeholder=""><br/>
-
+> 应用的密钥
 
 代理地址:
 : <input type="text" name="proxy_url" value="<?=$cfg['proxy_url']?>" placeholder=""><br/>
-
 > 代理地址必须配置，除非你的公网IP是固定的
 
-&nbsp;
-: <input type="submit" value="_(Apply)_">
+<input type="submit" value="_(Apply)_">
 <input type="button" value='_(Done)_' onclick="done()">
 <input type="button" value='测试' onclick="box()" />
 </form>
