@@ -13,7 +13,7 @@
 <!ENTITY pluginurl     "&githuburl;/wxwork-message.plg">
 <!ENTITY plgPATH     "/boot/config/plugins/&name;">
 <!ENTITY plgNAME     "&name;-&version;">
-<!ENTITY MD5         "fd383d72f7d9aceec4363bd050950eee">
+<!ENTITY MD5         "452504043e8cccb89e7e359b01dc8793">
 
 <!-- Defines the persistent (USB) directory where downloaded packages are cached -->
 <!ENTITY usbcfgdir     "/boot/config/plugins/&name;/">

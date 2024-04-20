@@ -10,7 +10,7 @@ if ($_POST['ca_active_config'] == "-1") {
     $secret = $_POST['secret'];
     $proxy_url = $_POST['proxy_url'];
     $message_type = $_POST['message_type'];
-    exec("echo -e \"crop_id=$crop_id\nagent_id=$agent_id\nsecret=$secret\nproxy_url=$proxy_url\nmessage_type=$message_type" > /boot/config/plugins/wxwork_message/wxwork_message.cfg");
+    exec("echo -e \"crop_id=$crop_id\nagent_id=$agent_id\nsecret=$secret\nproxy_url=$proxy_url\nmessage_type=$message_type\" > /boot/config/plugins/wxwork_message/wxwork_message.cfg");
     $scriptContent = <<<EOT
         #!/bin/bash
 
@@ -27,7 +27,7 @@ if ($_POST['ca_active_config'] == "-1") {
 
         # 发送消息
         send_message() {
-            local message="[\$SUBJECT]\n\$DESCRIPTION"
+            local message="[Unraid]->[\$SUBJECT]\\n\$DESCRIPTION"
             curl -s -H "Content-Type: application/json" -X POST \
                 "$proxy_url/cgi-bin/message/send?access_token=\$ACCESS_TOKEN" \
                 -d "{
